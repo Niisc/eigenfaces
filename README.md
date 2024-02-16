@@ -6,8 +6,13 @@ Eigenfaces is a facial recognition technique that involves reducing the dimensio
 TODO
 ## How to use
 ### Build instructions linux
-Download and install (arrayfire)[https://github.com/arrayfire/arrayfire] on your computer. Make sure to have make, cmake installed. \
-In `/Eigenfaces` run the following commands \
+Download and install [arrayfire](https://github.com/arrayfire/arrayfire) on your computer. Make sure to have make, cmake installed. Currently only fedora linux 39 has been tested.\
+The following line in `CMakeLists.txt`
+```cmake
+target_link_libraries(eigenfaces.out ArrayFire::afcuda)
+```
+Can be modified with `ArrayFire::afcpu`, `ArrayFire::afoneapi` and `ArrayFire::afopencl`. For further details read [here](https://arrayfire.org/docs/using_on_linux.htm). \
+In `/eigenfaces` run the following commands
 ```sh
 mkdir build && cd build
 ```
@@ -23,11 +28,10 @@ To run it simply use
 Command line args are not supported, so if you want to test out stuff just change the code and recompile.
 
 ## Acknowledgements
-As a first introduction into SVD this (article)[https://www.ams.org/publicoutreach/feature-column/fcarc-svd] \
-Another great way to visualize can be seen (here)[https://www.youtube.com/watch?v=FD4DeN81ODY] \
-Dataset used is olivetti faces, taken from (here)[https://github.com/lloydmeta/Olivetti-PNG/tree/master/images]. \
-Other usefull links for any advetureurs
+As a first introduction into SVD this [article](https://www.ams.org/publicoutreach/feature-column/fcarc-svd) is highly suggested \
+Another great way to visualize PCA can be seen [here](https://www.youtube.com/watch?v=FD4DeN81ODY) \
+Dataset of images used is olivetti faces, taken from [here](https://github.com/lloydmeta/Olivetti-PNG/tree/master/images). \
+Other usefull links for any advetureurs:\
 https://sandipanweb.wordpress.com/2018/01/06/eigenfaces-and-a-simple-face-detector-with-pca-svd-in-python/ \
-
-
-
+https://github.com/jakeoeding/eigenfaces \
+https://genomicsclass.github.io/book/pages/svd.html
